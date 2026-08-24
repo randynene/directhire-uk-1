@@ -9,28 +9,28 @@ export const modal = {
   sentChecks: [
     'A senior engineer reads the brief today',
     '45-minute scoping call before we search',
-    '£3,000 to start, credited in full to the fee',
+    '$3,000 to start, credited in full to the fee',
   ],
 };
 
 export const heroChecks = [
   '2 matched profiles, not 200 CVs',
   'A senior engineer interviews every candidate',
-  '6-month replacement guarantee',
+  '3-month replacement guarantee',
 ];
 
 export const shortlist = [
   {
     role: 'Senior AI Engineer',
-    meta: 'London · 9 yrs',
+    meta: 'Austin, TX · 9 yrs',
     skills: ['Go', 'Postgres', 'AWS', 'Kafka'],
-    salary: '£175,000',
+    salary: '$175,000',
   },
   {
     role: 'Senior Full-Stack Engineer',
-    meta: 'Manchester · 7 yrs',
+    meta: 'Denver, CO · 7 yrs',
     skills: ['TypeScript', 'React', 'Node', 'GraphQL'],
-    salary: '£160,000',
+    salary: '$160,000',
   },
 ];
 
@@ -114,9 +114,9 @@ export const features = [
 ];
 
 export const pricingRows = [
-  { label: 'Example: senior engineer at £140,000', value: '£35,000' },
-  { label: 'Paid to start the search, credited in full', value: '− £3,000' },
-  { label: 'Due when they start', value: '£32,000', emphasis: true },
+  { label: 'Example: senior engineer at $140,000', value: '$35,000' },
+  { label: 'Paid to start the search, credited in full', value: '− $3,000' },
+  { label: 'Due when they start', value: '$32,000', emphasis: true },
 ];
 
 export const pricingChecks = [
@@ -156,14 +156,14 @@ export const faqItems = [
   },
   {
     q: 'What does it cost?',
-    a: '25% of first-year base salary. £3,000 to start the search, credited in full against the fee.',
+    a: '25% of first-year base salary. $3,000 to start the search, credited in full against the fee.',
   },
   {
     q: 'How long does it take?',
     a: 'Scoping takes 45 minutes. Most searches produce two vetted profiles within a few weeks.',
   },
   {
-    q: 'Do you do this in the US?',
-    a: 'Yes — direct hire in the US is available alongside UK permanent recruitment.',
+    q: 'Do you do this in the UK?',
+    a: 'Yes — permanent recruitment in the UK is available alongside US direct hire.',
   },
 ];

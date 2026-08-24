@@ -59,9 +59,13 @@ img,svg{display:block}
 
 /* ---------- core: buttons ---------- */
 .btn{
-  display:inline-flex;align-items:center;gap:9px;border:none;border-radius:var(--radius-pill);
+  display:inline-flex;position:relative;overflow:hidden;isolation:isolate;align-items:center;gap:9px;border:none;border-radius:var(--radius-pill);
   font-weight:var(--fw-semibold);cursor:pointer;text-decoration:none;white-space:nowrap;
-  transition:var(--transition-control);
+  transform:translateY(0);
+  transition:background-color var(--duration-base) var(--ease-standard),
+             box-shadow var(--duration-base) var(--ease-standard),
+             color var(--duration-base) var(--ease-standard),
+             transform var(--duration-base) var(--ease-standard);
 }
 .btn--lg{height:var(--control-height-lg);font-size:var(--fs-btn-lg);line-height:var(--lh-btn-lg);padding-left:28px;padding-right:17px}
 .btn--lg.btn--no-arrow{padding-right:29px}
@@ -71,24 +75,50 @@ img,svg{display:block}
 .btn--sm.btn--no-arrow{padding-right:21px}
 
 .btn--primary{background:var(--accent-default);color:var(--text-on-accent)}
-.btn--primary:hover{background:var(--accent-hover)}
 .btn--primary:active{background:var(--accent-active)}
 .btn--primary .btn__badge{background:var(--navy-980)}
 
+/* primary inverts on hover: lime label + lime badge over the revealed dark ground */
+.btn--primary:hover,.btn--primary:focus-visible{color:var(--lime-500)}
+.btn--primary:hover .btn__badge,.btn--primary:focus-visible .btn__badge{background:var(--lime-500)}
+.btn--primary:hover .btn__badge .icon,.btn--primary:focus-visible .btn__badge .icon{color:var(--navy-980)}
+
 .btn--secondary{background:transparent;color:var(--text-primary);box-shadow:var(--ring-strong)}
-.btn--secondary:hover{background:var(--ghost-hover-bg)}
+.btn--secondary:hover,.btn--secondary:focus-visible{box-shadow:var(--ring-accent)}
+.btn--secondary:hover,.btn--secondary:focus-visible{color:var(--text-on-accent)}
+.btn--secondary:hover .btn__badge,.btn--secondary:focus-visible .btn__badge{background:var(--navy-980)}
+.btn--secondary:hover .btn__badge .icon,.btn--secondary:focus-visible .btn__badge .icon{color:var(--lime-500)}
 .btn--secondary:active{background:var(--ghost-active-bg)}
 .btn--secondary .btn__badge{background:var(--surface-raised)}
 
 .btn--ghost{background:transparent;color:var(--text-body);box-shadow:none}
-.btn--ghost:hover{background:var(--ghost-hover-bg)}
 .btn--ghost:active{background:var(--ghost-active-bg)}
 
-.btn__badge{border-radius:var(--radius-pill);display:grid;place-items:center;flex:0 0 auto}
+/* shared hover motion: lift on hover, settle + slight compress on press */
+.btn:disabled,.btn[aria-disabled="true"]{transform:none}
+
+/* sliding background: hover fill wipes in from the left */
+.btn{--btn-sweep:var(--navy-1000)}
+.btn::before{content:"";position:absolute;inset:1px;border-radius:var(--radius-pill);z-index:-1;background:var(--btn-sweep);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.65,0,.35,1)}
+.btn:hover::before,.btn:focus-visible::before{transform:scaleX(1)}
+.btn--ghost{--btn-sweep:rgba(255,255,255,0.10)}
+.btn--secondary{--btn-sweep:var(--accent-default)}
+/* only primary needs the inset gap to leave a hairline; the others fill to the edge */
+.btn--secondary::before,.btn--ghost::before{inset:0}
+.btn:disabled::before,.btn[aria-disabled="true"]::before{display:none}
+.play-button{position:relative;overflow:hidden;isolation:isolate}
+.play-button::before{content:"";position:absolute;inset:1.5px;border-radius:var(--radius-pill);z-index:-1;background:var(--navy-1000);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.65,0,.35,1)}
+.play-button:hover::before{transform:scaleX(1)}
+.play-button .icon{transition:color .4s cubic-bezier(.65,0,.35,1)}
+.play-button:hover .icon{color:var(--lime-500)}
+
+.btn__badge{border-radius:var(--radius-pill);display:grid;place-items:center;flex:0 0 auto;transition:background-color .4s cubic-bezier(.65,0,.35,1)}
 .btn--lg .btn__badge{width:26px;height:26px}
 .btn--md .btn__badge{width:26px;height:26px}
 .btn--sm .btn__badge{width:22px;height:22px}
-.btn__badge .icon{color:var(--lime-500)}
+.btn__badge .icon{color:var(--lime-500);transform:translateX(0);transition:transform .4s cubic-bezier(.65,0,.35,1),color .4s cubic-bezier(.65,0,.35,1)}
+.btn:hover .btn__badge .icon{transform:translateX(2px)}
+.btn:active .btn__badge .icon{transform:translateX(1px)}
 .btn--lg .btn__badge .icon{width:13px;height:13px}
 .btn--md .btn__badge .icon{width:12px;height:12px}
 .btn--sm .btn__badge .icon{width:11px;height:11px}
@@ -235,8 +265,7 @@ img,svg{display:block}
 .video-placeholder__name{font:var(--fw-semibold) var(--fs-name)/var(--lh-name) var(--font-sans);letter-spacing:var(--ls-name);color:var(--text-primary)}
 .video-placeholder__role{font:var(--fw-regular) var(--fs-body-xs)/var(--lh-body-xs) var(--font-sans);color:var(--text-body)}
 
-.play-button{width:74px;height:74px;border-radius:var(--radius-pill);border:none;background:var(--accent-default);color:var(--navy-980);display:grid;place-items:center;cursor:pointer;transition:var(--transition-control)}
-.play-button:hover{background:var(--accent-hover)}
+.play-button{width:74px;height:74px;border-radius:var(--radius-pill);border:none;background:var(--accent-default);color:var(--navy-980);display:grid;place-items:center;cursor:pointer;transform:translateY(0);transition:background-color var(--duration-base) var(--ease-standard),box-shadow var(--duration-base) var(--ease-standard),color var(--duration-base) var(--ease-standard),transform var(--duration-base) var(--ease-standard)}
 .play-button .icon{width:26px;height:26px}
 
 .code-panel{border-radius:var(--radius-panel);overflow:hidden;background:var(--surface-card);box-shadow:var(--ring-hairline);display:grid;grid-template-rows:auto 1fr}
@@ -375,4 +404,11 @@ select.form-control{appearance:none;padding-right:42px;cursor:pointer}
 }
 @media (prefers-reduced-motion:reduce){
   [data-reveal],[data-reveal] > *{opacity:1 !important;transform:none !important;clip-path:none !important}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .btn::before,.play-button::before{transition:none;transform:scaleX(1);opacity:0}
+  .btn:hover::before,.play-button:hover::before{opacity:1}
+  .btn,.btn:hover,.btn:active,.play-button:hover,.play-button:active,
+  .btn__badge .icon,.btn:hover .btn__badge .icon,.btn:active .btn__badge .icon{transform:none}
 }

@@ -59,8 +59,8 @@ checkbox. Currently front-end only — no submit handler.
 All values come from `css/tokens.css`; nothing is hard-coded in the page.
 
 - **Base:** navy ramp, `--navy-1000: #070D18` as page background.
-- **Accent:** lime `#D4FF3C`, hover `#E1FF6B`, active `#C4F522`. Re-synced to
-  the CE Design System's reverted accent on 18 Aug 2026.
+- **Accent:** lime `#D4FF3C`, hover `#E1FF6B`, active `#C4F522`. Synced to the
+  CE Design System on 18 Aug 2026.
 - **Secondary accent:** teal, used for section eyebrows.
 - **Type:** Inter for UI and headings, Source Serif 4 italic for emphasis
   inside headings. Loaded from the Google Fonts CDN.

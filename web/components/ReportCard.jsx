@@ -13,7 +13,7 @@ export default function ReportCard() {
         <AvatarPlaceholder label={'REAL\nPHOTO'} size={42} radius="var(--radius-sm)" />
         <div className="report-card__meta">
           <span className="report-card__name">Senior Backend Engineer</span>
-          <span className="report-card__detail">London · 9 yrs · Go, Postgres, AWS</span>
+          <span className="report-card__detail">Austin, TX · 9 yrs · Go, Postgres, AWS</span>
         </div>
         <button type="button" className="report-card__action">
           Open report →

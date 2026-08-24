@@ -19,7 +19,7 @@ export default function ClosingCta() {
               </OpenModalButton>
             </div>
             <span className="closing__fineprint">
-              £3,000 to start, credited to the fee · 6-month replacement guarantee
+              $3,000 to start, credited to the fee · 6-month replacement guarantee
             </span>
           </div>
         </div>

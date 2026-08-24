@@ -34,12 +34,12 @@ export default function Pricing() {
               </div>
               <p className="pricing-card__foot">
                 Base salary only — we don’t take a percentage of bonus, equity or signing. If you
-                don’t hire anyone, the £3,000 is all you’ve spent.
+                don’t hire anyone, the $3,000 is all you’ve spent.
               </p>
             </div>
           </div>
           <div className="pricing__copy" data-reveal="stagger">
-            <h3>Why we ask for £3,000 up front</h3>
+            <h3>Why we ask for $3,000 up front</h3>
             <p>
               Because contingent recruiters get paid only if they place someone — so they run twenty
               searches at once, send volume, and go quiet on the ones that look hard.
